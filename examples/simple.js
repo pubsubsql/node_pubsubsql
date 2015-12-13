@@ -15,20 +15,31 @@ client.on('ready', function() {
 
     async.waterfall([
         function(cb) {
-            client.query('key Stocks Ticker', function(response, err) {
-                console.log("GOT RESPONSE ON COMMAND:", response, err);
+            client.query('key Stocks Ticker', function(err, response) {
+                console.log("GOT RESPONSE ON key:", response, err);
                 cb();
             });
         }, function(cb) {
-            client.query('tag Stocks MarketCap', function(response, err) {
-                console.log("GOT RESPONSE ON COMMAND:", response, err);
+            client.query('tag Stocks MarketCap', function(err, response) {
+                console.log("GOT RESPONSE ON tag:", response, err);
                 cb();
             });
         }, function(cb) {
-            client.query("subscribe * from Stocks where MarketCap = 'MEGA CAP'", function(response, err) {
-                console.log("GOT RESPONSE ON COMMAND:", response, err);
-                cb();
+            client.query("subscribe * from Stocks where MarketCap = 'MEGA CAP'", function(err, response) {
+                if (err) {
+                    console.error("[subscription] error:", err);
+                    return;
+                }
+                if (response.action === 'subscribe') {
+                    console.log('[subscription] subscription confirmed!');
+                } else if (response.action === 'add'){
+                    console.log('[subscription] initial data!', response);
+                } else if (response.action === 'insert'){
+                    console.log('[subscription] new data!', response);
+                }
             });
+
+            cb();
         }
     ]);
 })
