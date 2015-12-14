@@ -30,13 +30,27 @@ var pss = require('pubsubsql'),
     });
 ```
 
+# Running commands
+
+All commands are ran using `query` command which accepts two parameters: command itself and callback function.
+Callback function is triggered when server responds to the query. In case of subscription, callback is called 
+repeatedly every time new data is published.
+
+Function example:
+
+``` javascript
+client.query('tag Stocks MarketCap', function(err, response) {
+    console.log("GOT RESPONSE for tag:", response, err);
+});
+```
+
 # Subscribing to data
 
 The following example sets up client connection and once the connection is ready it subscribes to changes in `Stocks` table
 when `MarketCap` value is `MEGA CAP`.
 
 ``` javascript
-var pss = require('../'),
+var pss = require('pubsubsql'),
     client = pss.createClient();
 
 client.on('error', function(err){
