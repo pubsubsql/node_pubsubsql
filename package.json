@@ -1,22 +1,33 @@
 {
-  "name": "pubsubsql",
+  "name": "node_pubsubsql",
   "version": "0.0.1",
-  "description": "Nodejs client for pubsubsql",
+  "description": "Nodejs client for PubSubSQL",
   "main": "index.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pubsubsql/node_pubsubsql.git"
   },
-  "author": "Marin Bek <marin.bek@gmail.com>",
+  "keywords": [
+    "pubsub",
+    "sql"
+  ],
+  "author": "PubSubSQL <oleg@pubsubsql.com> (http://www.pubsubsql.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pubsubsql/node_pubsubsql/issues"
+  },
+  "dependencies": {
+   "net": "*",
+   "events": "*",
+   "util": "*",
+   "mocha": "*",
+   "chai": "*"
   },
   "homepage": "https://github.com/pubsubsql/node_pubsubsql#readme"
 }
