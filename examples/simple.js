@@ -1,4 +1,4 @@
-var pss = require('../'),
+var pss = require('pubsubsql'),
     client = pss.createClient(),
     async = require('async');
 

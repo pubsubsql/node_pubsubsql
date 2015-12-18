@@ -25,9 +25,12 @@
   "dependencies": {
    "net": "*",
    "events": "*",
-   "util": "*",
+   "util": "*"
+  },
+  "devDependecies": {
    "mocha": "*",
-   "chai": "*"
+   "chai": "*",
+   "async": "*"
   },
   "homepage": "https://github.com/pubsubsql/node_pubsubsql#readme"
 }
