@@ -1,5 +1,5 @@
 {
-  "name": "node_pubsubsql",
+  "name": "pubsubsql",
   "version": "0.0.1",
   "description": "Nodejs client for PubSubSQL",
   "main": "index.js",
